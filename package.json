@@ -1,0 +1,31 @@
+{
+  "name": "backendlabs",
+  "version": "1.0.0",
+  "description": "This is my submission for achieving bonus points through the backend labs. ",
+  "keywords": [
+    "Express",
+    "Node",
+    "MariaDB"
+  ],
+  "homepage": "https://github.com/johankronholm/backendlabs#readme",
+  "bugs": {
+    "url": "https://github.com/johankronholm/backendlabs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johankronholm/backendlabs.git"
+  },
+  "license": "ISC",
+  "author": "Johan Kronholm",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.18.2"
+  }
+}
