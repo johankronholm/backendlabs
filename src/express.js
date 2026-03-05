@@ -1,8 +1,8 @@
-import express from "express"
+import express from "express";
 import helmet from "helmet";
-import { router } from "./routes/index.js"
+import { router } from "./routes/index.js";
 
-export const app = express(); 
+export const app = express();
 
 app.disable("x-powered-by");
 app.use(helmet());
