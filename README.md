@@ -44,9 +44,9 @@ DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 DB_SCHEMA=your_database_name
 PORT=3000
-SESSION_KEY=3395 
-PRIVATE_KEY=1337
-API_KEY=1111
+SESSION_KEY=your_session_key
+PRIVATE_KEY=your_jsonwebtoken_key
+API_KEY=your_api_key
 
 ```
 
