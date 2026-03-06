@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Course Labs</title>
+  </head>
+  <body>
+    <%- include("../partials/header") %>
+    <h2>Show task by ID</h2>
+    <% if(!prev) { %>
+    <form action="tasks/show" method="post">
+      <input type="number" min="1" name="id" value="1" />
+      <input type="submit" value="Select" />
+    </form>
+     <% } 
+
+      else { %>
+            <div>
+            <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span>
+            </div>
+            <%
+        
+        if (task) {%>
+
+ 
+    <table>
+    <th>Id</th>
+      <th>Description</th>
+        <th>Completed?</th>
+        <tr style="background-color: #eeeeee">
+            <td>
+    <%= task?.id%> </td> <td><%= task?.description %></td><td> <%= task?.completed === 1 %></td>
+    </td></tr>
+   </table>
+    <% }
+
+    else { %> Task was not found. <% } %> 
+    
+    <a href="/show">..Search again</a> <% } %>
+
+   <%- include("../partials/footer") %>
+  </body>
+</html>

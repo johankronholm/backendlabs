@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Labs</title>
+  </head>
+  <body style="background-image: <%= currDate.getDay() === 5 ? 'url(assets/friday.gif)' : 'none' %>; background-color: white;">
+    <%- include ("../partials/header") %>
+
+     <% const day = currDate.getDay() === 5; %>
+    <%
+    const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+    "Friday", "Saturday"] %>
+
+    <% if (day) { %>
+     <h2><%- "Today is Friday " + " - " + currDate.toLocaleString() %></h2>
+     <img src="assets/friday2.gif">
+      <%  } else { %>
+    <h2><%- "Today is " + week[currDate.getDay()] + " - " + currDate.toLocaleString() %></h2>
+    <% } %>
+
+    <%- include ("../partials/footer") %>
+  </body>
+</html>

@@ -25,3 +25,19 @@ Optional checks:
 DESCRIBE tasks;
 SELECT * FROM tasks;
 ```
+
+# Environment credentials (`.env`)
+
+Create a `.env` file in the project root (same folder as `app.js`) and provide your MariaDB credentials:
+
+```env
+DB_HOST=localhost
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_SCHEMA=your_database_name
+PORT=3000
+```
+
+Notes:
+- `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_SCHEMA` are required.
+- `PORT` is optional (defaults to `3000` if not set).

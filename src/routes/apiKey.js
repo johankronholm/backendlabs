@@ -1,12 +1,13 @@
-import { Router } from "express"
+import { Router } from "express";
 import { apiKey } from "../middleware/apiKey.js";
 
 export const router = Router();
 
-router.use(apiKey.verifyAPIKey);
-
 router.get("/", (req, res) => {
-    res.send("Correct API key! You unlocked the protected route.");
+  req.session.data = {
+    status: req.session.status ?? "Please enter your API key.",
+  };
+  res.render("api/home", req.session.data);
 });
 
-
+router.post("/submit", apiKey.authorize);

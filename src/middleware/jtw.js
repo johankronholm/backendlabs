@@ -12,13 +12,18 @@ jsonWebToken.createToken = (user) => {
 };
 
 jsonWebToken.verifyToken = (req, res, next) => {
-  const token = req.headers["token"];
-  if (!token) return res.status(401).send("Error: No token provided.");
+  const token = req.headers["token"] || req.session.token;
+
+  if (!token) {
+    req.session.status = "Please provide a token.";
+    return res.redirect("/login");
+  }
+
   try {
     jwt.verify(token, process.env.PRIVATE_KEY);
-    next();
+    return next();
   } catch (err) {
-    res.status(400).send("Error: Invalid/Expired token.");
+    req.session.status = "Invalid/expired token.";
+    return res.redirect("/login");
   }
-  res.status(500).send("Error: Something unexpected happened.");
 };

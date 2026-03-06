@@ -1,3 +1,4 @@
+import databaseService from "../service/databaseService.js";
 import DatabaseService from "../service/databaseService.js";
 
 export const model = {};
@@ -42,8 +43,15 @@ model.update = async (id, description, completed) => {
   )
     return "Error: Completed must be 'true' or 'false'";
 
+  const completedBoolean = completed === "true" ? 1 : 0;
+
   const query = "UPDATE tasks SET description = ?, completed = ? WHERE id = ? ";
-  const params = [description, completed, id];
-  const result = await DatabaseService.query(query, params);
-  return result.affectedRows > 0 ? result : "No task with that ID found.";
+  const params = [description, completedBoolean, id];
+  return await DatabaseService.query(query, params);
+  
 };
+
+model.all = async () => {
+  const query = "SELECT * FROM tasks";
+  return await databaseService.query(query);
+}

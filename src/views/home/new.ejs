@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Course Labs</title>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    <h2>New task</h2>
+    <% if (!prev) { %>
+
+    
+    <form action="tasks/create" method="post">
+        <label for="description">Description:</label>
+        <input type="text" name="description" maxlength="50" required>
+        <label for="completed">Completed?</label>
+        <select name="completed" required>
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+        <input type="submit" value="Create task">
+    </form>
+
+    <% }  else { %>
+        <div>
+            <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span>
+            </div> 
+             <hr>
+     <div>   
+        <b>
+    <%= status ? "Added new task with id: " + id : "Could not create task!" %>
+    </b>
+     </div>
+    
+    <a href="/new">..Create a new task</a>
+    <% } %>
+
+       <%- include("../partials/footer") %>
+</body>
+</html>
