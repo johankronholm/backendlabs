@@ -1,3 +1,11 @@
+# Install dependencies
+
+From the project root, run:
+
+```bash
+npm install
+```
+
 # MariaDB setup
 
 Use this SQL in MariaDB to create the `tasks` table and insert the requested entries.
