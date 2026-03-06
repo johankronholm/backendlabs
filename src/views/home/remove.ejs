@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Course Labs</title>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    <h2>Remove task</h2>
+    <% if (!prev) { %>
+    <form action="tasks/delete" method="post">
+        <label for="id">Id: </label>
+        <input type="number" min="1" name="id" value="1">
+        <input type="submit" value="Remove task">
+    </form>
+
+    <% } else { %> 
+        <div>
+      <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span> 
+      </div>
+      <% if(status) { %>
+        <b>Removed task with id: <%= id %></b>
+        <% } else { %>
+            Task was not found. <% } %>
+
+                <a href="/remove">..Remove a new task</a>
+        <% } %>
+     
+
+            
+
+       <%- include("../partials/footer") %>
+</body>
+</html>
