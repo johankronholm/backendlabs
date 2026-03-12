@@ -3,7 +3,9 @@ import { controller } from "../controller/taskController.js";
 
 export const router = Router();
 
-router.post("/show", controller.show);
-router.post("/create", controller.create);
-router.post("/delete", controller.delete);
-router.post("/update", controller.update);
+router.get("/", controller.all);
+router.get("/:id", controller.show);
+router.post("/", controller.create);
+router.delete("/:id", controller.delete);
+router.patch("/:id", controller.update);
+

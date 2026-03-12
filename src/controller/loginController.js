@@ -8,6 +8,7 @@ controller.verifyUser = async (req, res, next) => {
   if (token) {
     req.session.token = token;
     return res.redirect("/");
+    
   } else {
     req.session.status = "Incorrect username/password";
     res.redirect("/login");

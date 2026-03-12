@@ -1,0 +1,43 @@
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+#menu ul {
+      list-style: none;
+      padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    place-items: center;
+    background-color: #eeeeee3f;
+    margin: auto;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+#result td {
+    background-color: #eee;
+}
+
+footer {
+   background-color: #eee;
+   margin-top: 5rem;
+}
+

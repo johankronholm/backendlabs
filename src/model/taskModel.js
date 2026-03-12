@@ -11,17 +11,8 @@ model.show = async (id) => {
 };
 
 model.create = async (description, completed) => {
-  if (description === undefined || completed === undefined)
-    return "No description or complete status provided.";
-
-  if (
-    String(completed).toLowerCase() !== "true" &&
-    String(completed).toLowerCase() !== "false"
-  )
-    return "Error: Completed must be 'true' or 'false'";
-  const completedBoolean = completed === "true" ? 1 : 0;
   const query = "INSERT INTO tasks (description, completed) VALUES (?, ?)";
-  const params = [description, completedBoolean];
+  const params = [description, completed];
   return await DatabaseService.query(query, params);
 };
 
@@ -34,18 +25,9 @@ model.delete = async (id) => {
 };
 
 model.update = async (id, description, completed) => {
-  if (description === undefined || completed === undefined || id === undefined)
-    return "No ID or description or complete status provided.";
-
-  if (
-    String(completed).toLowerCase() !== "true" &&
-    String(completed).toLowerCase() !== "false"
-  )
-    return "Error: Completed must be 'true' or 'false'";
-
-  const completedBoolean = completed === "true" ? 1 : 0;
 
   const query = "UPDATE tasks SET description = ?, completed = ? WHERE id = ? ";
+  const completedBoolean = completed === "1" ? 1 : 0;
   const params = [description, completedBoolean, id];
   return await DatabaseService.query(query, params);
   

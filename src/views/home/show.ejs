@@ -4,41 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Backend Course Labs</title>
+      <link rel="stylesheet" href="/assets/styles.css">
   </head>
   <body>
     <%- include("../partials/header") %>
+
+    <main>
     <h2>Show task by ID</h2>
-    <% if(!prev) { %>
-    <form action="tasks/show" method="post">
-      <input type="number" min="1" name="id" value="1" />
-      <input type="submit" value="Select" />
-    </form>
-     <% } 
+      
+      <label for="id">Id:</label>
+      <input type="number" name="id" min="1" id="id" value="1" />
+      <input type="submit" id="submit" value="Select"/>
+<hr>  
 
-      else { %>
-            <div>
-            <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span>
-            </div>
-            <%
-        
-        if (task) {%>
+      <%= message %>
+      <table id="result" hidden>
 
- 
-    <table>
-    <th>Id</th>
-      <th>Description</th>
-        <th>Completed?</th>
-        <tr style="background-color: #eeeeee">
-            <td>
-    <%= task?.id%> </td> <td><%= task?.description %></td><td> <%= task?.completed === 1 %></td>
-    </td></tr>
-   </table>
-    <% }
-
-    else { %> Task was not found. <% } %> 
+      </table>
     
-    <a href="/show">..Search again</a> <% } %>
-
+ 
+</main>
    <%- include("../partials/footer") %>
+
+   <script src="/scripts/show.js"></script>
   </body>
 </html>

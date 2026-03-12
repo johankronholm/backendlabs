@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backend Course Labs</title>
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
+
 <body>
     <%- include("../partials/header") %>
-    <h2>Update task</h2>
-       
-        <% if (!prev) { %>
-    <form action="tasks/update" method="post">
-        <label for="id">Id: </label>
-        <input type="number" min="1" name="id" value="1">
-        <label for="description">Description:</label>
-        <input type="text" maxlength="30" name="description" required>
-        <label for="completed">Completed?</label>
-        <select name="completed" required>
-            <option value="true">True</option>
-            <option value="false">False</option>
-        </select>
-        <input type="submit" value="Update task">
-    </form>
+        <main>
+            <h2>Update task</h2>
 
-    <% } else { %> 
-        <div>
-      <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span>
-      </div> 
-      <% if(status) { %>
-        <b>Updated task with id: <%= id %></b>
-        <% } else { %>
-            Task was not found.<% } %>
+            <label for="id">Id: </label>
+            <input type="number" min="1" id="id" value="1">
+            <label for="description">Description:</label>
+            <input type="text" maxlength="30" id="description" required>
+            <label for="completed">Completed?</label>
+            <select name="completed" id="completed" required>
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+            <input type="submit" value="Update task" id="submit">
+            <hr>
 
-                <a href="/update">..Update a new task</a>
-        <% } %>
+            <%= message %>
+            <div id="result"></div>
 
+        </main>
         <%- include("../partials/footer") %>
+            <script src="/scripts/update.js"></script>
 </body>
+
 </html>

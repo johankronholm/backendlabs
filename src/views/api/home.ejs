@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Backend Course Labs</title>
+      <link rel="stylesheet" href="/assets/styles.css">
   </head>
   <body>
+    <main>
     <h1>Enter API key</h1>
     <%= status %>
     <form action="/apikey/submit" method="post">
       <input type="text" name="key" />
       <input type="submit" value="Submit API key" />
     </form>
+    </main>
   </body>
 </html>

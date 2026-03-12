@@ -6,7 +6,7 @@ jsonWebToken.createToken = (user) => {
   const token = jwt.sign(
     { use: user.username, role: user.role },
     process.env.PRIVATE_KEY,
-    { expiresIn: "10m" },
+    { expiresIn: "10s" },
   );
   return token;
 };

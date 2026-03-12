@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backend Course Labs</title>
+    <link href="/assets/styles.css" rel="stylesheet">
 </head>
+
 <body>
     <%- include("../partials/header") %>
-    <h2>All tasks</h2>
-    <% if (tasks.length > 0) { %>
-          <span style="color : green">Success!</span>
-    <table>
-           <th>Id</th>
-            <th>Description</th>
-            <th>Completed?</th>
-    <% tasks.forEach(element => {  %>
-        <tr style="background-color: #eeeeee">
-         
-    <td><%- element.id %></td>
-    <td><%- element.description %></td>
-    <td><%- element.completed === 1 %></td>
-    </tr> <%
-   
-    });
-     %>
-     <% } else { %> 
-        <span style="color : red">Oops!.</span>
-        <p>No tasks could be found.</p>
-        <% } %>
 
+        <main>
+            <h2>All tasks</h2>
+            <input type="submit" id="submit" value="Refresh">
+            <hr>
+            <%= message %>
+            <table id="result" hidden>
+            </table>
 
-    </table>
-       <%- include("../partials/footer") %>
-
+        </main>
+        <%- include("../partials/footer") %>
+            <script src="/scripts/all.js"></script>
 </body>
+
 </html>

@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backend Course Labs</title>
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
+
 <body>
     <%- include("../partials/header") %>
-    <h2>Remove task</h2>
-    <% if (!prev) { %>
-    <form action="tasks/delete" method="post">
+
+    <main>
+        <h2>Remove task</h2>
+
         <label for="id">Id: </label>
-        <input type="number" min="1" name="id" value="1">
-        <input type="submit" value="Remove task">
-    </form>
+        <input type="number" min="1" id="id" value="1">
+        <input type="submit" id="submit" value="Remove task">
 
-    <% } else { %> 
-        <div>
-      <span style="color: <%= status ? "green" : "red" %>;">  <%= status ? "Success!" : "Oops!" %>  </span> 
-      </div>
-      <% if(status) { %>
-        <b>Removed task with id: <%= id %></b>
-        <% } else { %>
-            Task was not found. <% } %>
+        <hr>
+        <%= message %>
+        <div id="result">
 
-                <a href="/remove">..Remove a new task</a>
-        <% } %>
-     
+        </div>
 
-            
-
-       <%- include("../partials/footer") %>
+    </main>
+        <%- include("../partials/footer") %>
+            <script src="/scripts/remove.js"></script>
 </body>
+
 </html>
