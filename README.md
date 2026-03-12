@@ -36,7 +36,7 @@ SELECT * FROM tasks;
 
 # Environment credentials (`.env`)
 
-Create a `.env` file in the project root (same folder as `app.js`) and provide your MariaDB credentials, port number (3000 is standard), desired session key for Express.sessions, desired private key for JSONWebToken and your desired API key:
+Create a `.env` file in the project root (same folder as `app.js`) and provide the credentials below.
 
 ```env
 DB_HOST=localhost
@@ -51,5 +51,4 @@ API_KEY=your_api_key
 ```
 
 Notes:
-- `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_SCHEMA` are required.
 - `PORT` is optional (defaults to `3000` if not set).
